@@ -603,7 +603,7 @@
 			},
 			"ServerName": {
 				"type": "string",
-				"defaultValue": "syninsiderws01.sql.azuresynapse.net"
+				"defaultValue": "syninsiderws01"
 			},
 			"SparkPoolName": {
 				"type": "string",
