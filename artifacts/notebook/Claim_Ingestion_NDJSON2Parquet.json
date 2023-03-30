@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "7447f462-803d-49e4-9cb9-82a244c672f2"
+				"spark.autotune.trackingId": "d944b6c4-7103-4509-8993-feeb58216913"
 			}
 		},
 		"metadata": {
@@ -36,16 +36,10 @@
 			"a365ComputeOptions": {
 				"id": "/subscriptions/4c10a6a7-36de-4a63-b75e-d2b4303f725c/resourceGroups/syninsiderRG01/providers/Microsoft.Synapse/workspaces/syninsiderws01/bigDataPools/syninsiderspk",
 				"name": "syninsiderspk",
-				"type": "Spark",
-				"endpoint": "https://syninsiderws01.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/syninsiderspk",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				},
-				"sparkVersion": "3.1",
-				"nodeCount": 5,
-				"cores": 8,
-				"memory": 56
+				}
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -97,7 +91,7 @@
 					}
 				},
 				"source": [
-					"Claim_df = spark.read.option(\"multiline\", \"false\").json(raw_location+\"Claim.ndjson\")\r\n",
+					"Claim_df = spark.read.option(\"multiline\", \"true\").json(raw_location+\"Claim.ndjson\")\r\n",
 					"Claim_df.write.mode(write_mode).parquet(processed_location+\"Claim/\")\r\n",
 					"#display(Claim_df.limit(10))\r\n",
 					"#Claim_df.count()"
