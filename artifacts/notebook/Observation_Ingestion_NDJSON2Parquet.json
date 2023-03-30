@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "4",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "b3cc26e4-f21d-4a99-b27a-9a7b169b7dd3"
+				"spark.autotune.trackingId": "d8d2c546-e434-4d60-abda-b670d7f39e99"
 			}
 		},
 		"metadata": {
@@ -36,17 +36,10 @@
 			"a365ComputeOptions": {
 				"id": "/subscriptions/7e416de3-c506-4776-8270-83fd73c6cc37/resourceGroups/syne2e/providers/Microsoft.Synapse/workspaces/health/bigDataPools/healthcare",
 				"name": "healthcare",
-				"type": "Spark",
-				"endpoint": "https://health.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/healthcare",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				},
-				"sparkVersion": "3.1",
-				"nodeCount": 3,
-				"cores": 16,
-				"memory": 112,
-				"automaticScaleJobs": false
+				}
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -98,7 +91,7 @@
 					}
 				},
 				"source": [
-					"Observation_df = spark.read.option(\"multiline\", \"false\").json(raw_location+\"Observation.ndjson\")\r\n",
+					"Observation_df = spark.read.option(\"multiline\", \"true\").json(raw_location+\"Observation.ndjson\")\r\n",
 					"Observation_df.write.mode(write_mode).parquet(processed_location+\"Observation/\")\r\n",
 					"#display(Observation_df.limit(10))\r\n",
 					"#Observation_df.count()"
