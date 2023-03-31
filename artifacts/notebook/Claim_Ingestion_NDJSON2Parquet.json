@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "d944b6c4-7103-4509-8993-feeb58216913"
+				"spark.autotune.trackingId": "274e46bb-f011-4a65-87ae-d07a8c426404"
 			}
 		},
 		"metadata": {
@@ -91,7 +91,7 @@
 					}
 				},
 				"source": [
-					"Claim_df = spark.read.option(\"multiline\", \"true\").json(raw_location+\"Claim.ndjson\")\r\n",
+					"Claim_df = spark.read.option(\"multiline\", \"false\").json(raw_location+\"Claim.ndjson\")\r\n",
 					"Claim_df.write.mode(write_mode).parquet(processed_location+\"Claim/\")\r\n",
 					"#display(Claim_df.limit(10))\r\n",
 					"#Claim_df.count()"
