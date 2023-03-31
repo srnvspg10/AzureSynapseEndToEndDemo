@@ -28,7 +28,7 @@
 					"value": "@concat('fhir_ndjson/', dataset().DatasetSize)",
 					"type": "Expression"
 				},
-				"fileSystem": "raw"
+				"fileSystem": "raw1"
 			}
 		}
 	}
