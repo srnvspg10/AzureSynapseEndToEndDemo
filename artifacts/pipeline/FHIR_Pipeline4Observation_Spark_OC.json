@@ -230,23 +230,23 @@
 		"parameters": {
 			"StorageName": {
 				"type": "string",
-				"defaultValue": "synapsee2elake"
+				"defaultValue": "syninsidersa01"
 			},
 			"DatabaseName": {
 				"type": "string",
-				"defaultValue": "synapsee2edw"
+				"defaultValue": "syninsidersqlpl02"
 			},
 			"ServerName": {
 				"type": "string",
-				"defaultValue": "synapsee2e"
+				"defaultValue": "syninsiderws01"
 			},
 			"SparkPoolName": {
 				"type": "string",
-				"defaultValue": "synapsee2espark"
+				"defaultValue": "syninsdrsprk02"
 			},
 			"DatasetSize": {
 				"type": "string",
-				"defaultValue": "1tb"
+				"defaultValue": "30tb"
 			}
 		},
 		"folder": {
