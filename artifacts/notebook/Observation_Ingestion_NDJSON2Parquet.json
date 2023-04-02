@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "a9d99bc2-6502-4b9e-98d2-36d40fce3ec9"
+				"spark.autotune.trackingId": "07091633-563d-4222-a80c-713f482a1391"
 			}
 		},
 		"metadata": {
@@ -98,7 +98,7 @@
 					}
 				},
 				"source": [
-					"Observation_df = spark.read.option(\"multiline\", \"false\").json(raw_location+\"Observation.ndjson\")\r\n",
+					"Observation_df = spark.read.option(\"multiline\", \"true\").json(raw_location+\"Observation.ndjson\")\r\n",
 					"Observation_df.write.mode(write_mode).parquet(processed_location+\"Observation/\")\r\n",
 					"#display(Observation_df.limit(10))\r\n",
 					"#Observation_df.count()"
