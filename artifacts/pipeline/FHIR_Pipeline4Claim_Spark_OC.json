@@ -476,19 +476,19 @@
 			},
 			"DatabaseName": {
 				"type": "string",
-				"defaultValue": "syninsidersqlpl01"
+				"defaultValue": "syninsidersqlpl02"
 			},
 			"ServerName": {
 				"type": "string",
-				"defaultValue": "syninsiderws01.sql.azuresynapse.net"
+				"defaultValue": "syninsiderws01"
 			},
 			"SparkPoolName": {
 				"type": "string",
-				"defaultValue": "syninsiderspk"
+				"defaultValue": "syninsdrsprk02"
 			},
 			"DatasetSize": {
 				"type": "string",
-				"defaultValue": "1tb"
+				"defaultValue": "30tb"
 			}
 		},
 		"folder": {
