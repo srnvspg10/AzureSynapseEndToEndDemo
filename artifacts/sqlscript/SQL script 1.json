@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "-- exec sp_rename 'fhir.ClaimDiagnosis', 'ClaimDiagnosis_old';\nexec sp_rename 'fhir.ClaimDiagnosis', 'ClaimDiagnosis_old', 'USER_TABLE';\n\nselect * from sys.objects;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "syninsidersqlpl02",
+				"poolName": "syninsidersqlpl02"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

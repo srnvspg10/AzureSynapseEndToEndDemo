@@ -607,7 +607,7 @@
 			},
 			"SparkPoolName": {
 				"type": "string",
-				"defaultValue": "syninsdrsprk01"
+				"defaultValue": "syninsdrsprk02"
 			},
 			"DatasetSize": {
 				"type": "string",
