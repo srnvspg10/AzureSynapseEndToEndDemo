@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://syninsidersa01.dfs.core.windows.net/curated/fhir/30tb/Claim_diagnosis/part-00000-8933ef86-272c-4236-b355-f5c0d3eab10e-c000.snappy.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\n\n\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://syninsidersa01.dfs.core.windows.net/curated/fhir/30tb/Claim_main/part-00000-d0c58e26-9151-4d85-8f90-f81442d9ee7c-c000.snappy.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
