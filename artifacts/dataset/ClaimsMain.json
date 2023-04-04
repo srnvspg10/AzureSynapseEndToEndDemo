@@ -1,0 +1,78 @@
+{
+	"name": "ClaimsMain",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "part-00000-d0c58e26-9151-4d85-8f90-f81442d9ee7c-c000.snappy.parquet",
+				"folderPath": "fhir/30tb/Claim_main",
+				"fileSystem": "curated"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Claim_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "resourceType",
+				"type": "UTF8"
+			},
+			{
+				"name": "status",
+				"type": "UTF8"
+			},
+			{
+				"name": "billablePeriod_end",
+				"type": "UTF8"
+			},
+			{
+				"name": "billablePeriod_start",
+				"type": "UTF8"
+			},
+			{
+				"name": "created",
+				"type": "UTF8"
+			},
+			{
+				"name": "patient_display",
+				"type": "UTF8"
+			},
+			{
+				"name": "patient_id_reference",
+				"type": "UTF8"
+			},
+			{
+				"name": "prescription_reference",
+				"type": "UTF8"
+			},
+			{
+				"name": "provider_display",
+				"type": "UTF8"
+			},
+			{
+				"name": "provider_org_id_reference",
+				"type": "UTF8"
+			},
+			{
+				"name": "total_currency",
+				"type": "UTF8"
+			},
+			{
+				"name": "total_value",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "use",
+				"type": "UTF8"
+			}
+		]
+	}
+}

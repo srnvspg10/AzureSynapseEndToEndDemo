@@ -1,0 +1,110 @@
+{
+	"name": "Dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ClaimsMain",
+						"type": "DatasetReference"
+					},
+					"name": "ClaimsMain"
+				},
+				{
+					"dataset": {
+						"referenceName": "ClaimsMain",
+						"type": "DatasetReference"
+					},
+					"name": "fhirclaims"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ClaimsMain",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "join1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Claim_id as string,",
+				"          resourceType as string,",
+				"          status as string,",
+				"          billablePeriod_end as string,",
+				"          billablePeriod_start as string,",
+				"          created as string,",
+				"          patient_display as string,",
+				"          patient_id_reference as string,",
+				"          prescription_reference as string,",
+				"          provider_display as string,",
+				"          provider_org_id_reference as string,",
+				"          total_currency as string,",
+				"          total_value as double,",
+				"          use as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> ClaimsMain",
+				"source(output(",
+				"          Claim_id as string,",
+				"          resourceType as string,",
+				"          status as string,",
+				"          billablePeriod_end as string,",
+				"          billablePeriod_start as string,",
+				"          created as string,",
+				"          patient_display as string,",
+				"          patient_id_reference as string,",
+				"          prescription_reference as string,",
+				"          provider_display as string,",
+				"          provider_org_id_reference as string,",
+				"          total_currency as string,",
+				"          total_value as double,",
+				"          use as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> fhirclaims",
+				"ClaimsMain, fhirclaims join(ClaimsMain@Claim_id == fhirclaims@Claim_id,",
+				"     joinType:'outer',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1",
+				"join1 sink(allowSchemaDrift: true,",
+				"     validateSchema: true,",
+				"     input(",
+				"          Claim_id as string,",
+				"          resourceType as string,",
+				"          status as string,",
+				"          billablePeriod_end as string,",
+				"          billablePeriod_start as string,",
+				"          created as string,",
+				"          patient_display as string,",
+				"          patient_id_reference as string,",
+				"          prescription_reference as string,",
+				"          provider_display as string,",
+				"          provider_org_id_reference as string,",
+				"          total_currency as string,",
+				"          total_value as double,",
+				"          use as string",
+				"     ),",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1) ~> sink1"
+			]
+		}
+	}
+}
